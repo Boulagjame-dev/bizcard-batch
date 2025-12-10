@@ -1,8 +1,7 @@
 # BizCard Batch
 
 **Transform physical business cards into actionable digital contacts with AI.**
-
-![BizCard Batch Banner](https://via.placeholder.com/1200x400?text=BizCard+Batch+AI)
+<img width="1008" height="288" alt="image" src="https://github.com/user-attachments/assets/2724fe50-9ea0-41f7-af58-854d7ce70cf1" />
 
 ## 🚀 The Working Idea
 
@@ -10,6 +9,8 @@
 
 ### Core Intelligence
 At the heart of BizCard Batch is a specialized AI pipeline:
+<img width="985" height="497" alt="image" src="https://github.com/user-attachments/assets/ff1faffd-7b9d-4af2-8022-83e8bb492179" />
+
 1.  **Image Ingestion**: Accepts individual or stitched images of business cards.
 2.  **Multimodal Extraction**: Uses **Google Gemini 1.5 Pro** to "see" the card and extract fields (Name, Job Title, Company, Phone, Email, Address, Website) with high accuracy, even from creative or cluttered designs.
 3.  **Smart Verification**: Flags low-confidence extractions for user review.
