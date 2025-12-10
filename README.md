@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BizCard Batch
 
-## Getting Started
+**Transform physical business cards into actionable digital contacts with AI.**
 
-First, run the development server:
+![BizCard Batch Banner](https://via.placeholder.com/1200x400?text=BizCard+Batch+AI)
+
+## 🚀 The Working Idea
+
+**BizCard Batch** is an intelligent web application designed to solve the chaos of business card collection. Instead of manually typing in details from dozens of cards collected at conferences or meetings, users can simply upload images—batches of cards at once—and let Gemini AI (Google's multimodal model) extract, structure, and save the data.
+
+### Core Intelligence
+At the heart of BizCard Batch is a specialized AI pipeline:
+1.  **Image Ingestion**: Accepts individual or stitched images of business cards.
+2.  **Multimodal Extraction**: Uses **Google Gemini 1.5 Pro** to "see" the card and extract fields (Name, Job Title, Company, Phone, Email, Address, Website) with high accuracy, even from creative or cluttered designs.
+3.  **Smart Verification**: Flags low-confidence extractions for user review.
+4.  **CRM Sync**: Exports clean data to CSV, HubSpot, or Salesforce (planned).
+
+## 🛠 Tech Stack
+
+Built with a modern, type-safe, and serverless-ready stack:
+
+-   **Frontend**: [Next.js 15](https://nextjs.org/) (App Router, Server Components)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) (Premium UI)
+-   **Database**: [Supabase](https://supabase.com/) (PostgreSQL + Auth + Realtime)
+-   **AI Engine**: [Google Gemini API](https://ai.google.dev/) (OCR & Entity Extraction)
+-   **Storage**: Supabase Storage (for card images)
+-   **Language**: TypeScript
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bizcard-batch-core/
+├── app/                # Next.js App Router
+│   ├── api/            # Serverless API routes (webhook, AI processing)
+│   ├── auth/           # Authentication pages (Supabase)
+│   ├── dashboard/      # Main user interface
+│   └── page.tsx        # Landing page
+├── components/         # React components
+│   ├── ui/             # Reusable UI primitives (buttons, cards)
+│   └── bizcard/        # Domain-specific components (Scanner, Editor)
+├── lib/
+│   ├── supabase/       # Supabase client instantiation
+│   └── gemini/         # Gemini AI processing logic
+├── public/             # Static assets
+└── types/              # TypeScript definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Key Features (Planned/In-Progress)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   [x] **Secure Authentication**: Magic Link & Google Sign-In via Supabase.
+-   [ ] **Batch Processing**: Upload multiple card images simultaneously.
+-   [ ] **AI Extraction**: Automatic field population using Gemini.
+-   [ ] **Confidence Scoring**: Visual indicators for AI certainty.
+-   [ ] **Manual Override**: Easy-to-use editor for correcting AI mistakes.
+-   [ ] **Export Tools**: Download as `.vcf` or `.csv`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+### Prerequisites
+-   Node.js 18+
+-   npm or yarn
+-   A **Supabase** project (free tier works great).
+-   A **Google Cloud** project with Gemini API enabled.
 
-To learn more about Next.js, take a look at the following resources:
+### Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/Boulagjame-dev/bizcard-batch.git
+    cd bizcard-batch
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-## Deploy on Vercel
+3.  **Environment Setup**:
+    Copy the example environment file:
+    ```bash
+    cp .env.example .env.local
+    ```
+    Fill in your keys in `.env.local`:
+    ```env
+    NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+    NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+    GEMINI_API_KEY=your_gemini_api_key
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4.  **Run Locally**:
+    ```bash
+    npm run dev
+    ```
+    Visit `http://localhost:3000`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+We welcome contributions! Please check out `docs/CONTRIBUTING.md` (coming soon) for guidelines.
+
+## 📄 License
+
+MIT License. See `LICENSE` for details.
